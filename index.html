@@ -437,6 +437,61 @@ tbody tr:hover{background:rgba(255,255,255,.02)}
 .empty-state .ico{font-size:36px;opacity:.6;filter:grayscale(.2)}
 .empty-state .title{font-size:13px;font-weight:600;color:#a3a3a3}
 .empty-state .desc{font-size:11px;color:#525252;max-width:260px}
+
+/* ===== NEW: IMPROVED MODALS, CONFIRM DIALOGS & POLISH ===== */
+/* Smoother modal entrance */
+.modal-overlay{animation:fadeIn .2s ease}
+.modal-overlay .modal{animation:modalPop .28s cubic-bezier(.16,1,.3,1)}
+@keyframes modalPop{0%{opacity:0;transform:translateY(14px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
+/* Confirm dialog */
+.confirm-modal{max-width:380px}
+.confirm-icon{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px}
+.confirm-icon.danger{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3)}
+.confirm-icon.warn{background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.3)}
+.confirm-icon.info{background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.34)}
+.confirm-title{font-size:16px;font-weight:700;color:#f5f5f5;text-align:center;margin-bottom:6px}
+.confirm-msg{font-size:12.5px;color:#a3a3a3;text-align:center;line-height:1.55;margin-bottom:20px}
+.confirm-actions{display:flex;gap:10px}
+.confirm-actions .btn{flex:1;justify-content:center}
+.btn-danger{background:linear-gradient(135deg,#dc2626,#ef4444);color:#fff;border:none}
+.btn-danger:hover{filter:brightness(1.08);transform:translateY(-1px)}
+/* Scope-choice cards (this month vs all future) */
+.scope-opt{display:flex;align-items:flex-start;gap:12px;padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);cursor:pointer;transition:all .18s ease;text-align:left;width:100%;margin-bottom:10px}
+.scope-opt:hover{border-color:rgba(124,58,237,.5);background:rgba(124,58,237,.08);transform:translateY(-1px)}
+.scope-opt .so-ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.3);flex-shrink:0}
+.scope-opt .so-title{font-size:13px;font-weight:700;color:#f5f5f5}
+.scope-opt .so-desc{font-size:11px;color:#8a8a8a;margin-top:3px;line-height:1.45}
+/* Month-override badge */
+.ovr-badge{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:2px 7px;border-radius:99px;background:rgba(124,58,237,.16);color:#a78bfa;border:1px solid rgba(124,58,237,.32)}
+/* Reminder badges (dashboard upcoming bills) */
+.rem-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.rem-overdue{background:rgba(239,68,68,.16);color:#fca5a5;border:1px solid rgba(239,68,68,.35);animation:pulseRed 2s ease infinite}
+.rem-today{background:rgba(251,191,36,.16);color:#fcd34d;border:1px solid rgba(251,191,36,.35)}
+.rem-soon{background:rgba(96,165,250,.14);color:#93c5fd;border:1px solid rgba(96,165,250,.3)}
+@keyframes pulseRed{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.0)}50%{box-shadow:0 0 0 3px rgba(239,68,68,.12)}}
+.reminder-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border-radius:11px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);margin-bottom:7px;transition:all .18s ease}
+.reminder-row:hover{background:rgba(255,255,255,.045);transform:translateX(2px)}
+.reminder-row.is-overdue{border-color:rgba(239,68,68,.28);background:rgba(239,68,68,.05)}
+/* Debt summary widget */
+.debt-people-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:10px;background:rgba(255,255,255,.025);margin-bottom:6px;transition:all .16s ease}
+.debt-people-row:hover{background:rgba(255,255,255,.05)}
+.dp-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.dp-avatar.me{background:rgba(16,185,129,.16);color:#34d399;border:1px solid rgba(16,185,129,.3)}
+.dp-avatar.owe{background:rgba(239,68,68,.14);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
+/* Collapsible debt-link section in tx dialog */
+.tx-debt-section{border:1px solid rgba(124,58,237,.22);border-radius:14px;padding:0;margin-top:12px;overflow:hidden;transition:all .2s ease}
+.tx-debt-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;cursor:pointer;background:rgba(124,58,237,.06)}
+.tx-debt-toggle:hover{background:rgba(124,58,237,.1)}
+.tx-debt-body{padding:0 13px;max-height:0;opacity:0;transition:all .25s ease;overflow:hidden}
+.tx-debt-section.open .tx-debt-body{max-height:340px;opacity:1;padding:13px}
+.split-badge{display:inline-flex;align-items:center;gap:3px;font-size:9.5px;font-weight:600;padding:1px 7px;border-radius:99px;background:rgba(124,58,237,.12);color:#a78bfa;border:1px solid rgba(124,58,237,.25)}
+/* Search range inputs */
+.search-range{display:flex;align-items:center;gap:6px}
+.search-range input{width:90px}
+/* Chip selectable (contacts) */
+.chip-pick{cursor:pointer;transition:all .15s ease}
+.chip-pick:hover{border-color:rgba(124,58,237,.5);background:rgba(124,58,237,.1)}
+.chip-pick.active{background:rgba(124,58,237,.2);border-color:rgba(124,58,237,.6);color:#c4b5fd}
 </style>
 <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:JetBrains Mono, monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.font-mono{font-family:JetBrains Mono, monospace}</style><link id="psono-css" rel="stylesheet" type="text/css" href="chrome-extension://lnfflhmanffipgdmceonijidkpiacanc/data/css/contentscript.css" media="all"></head>
 <body data-new-gr-c-s-check-loaded="14.1138.0" data-gr-ext-installed="">
@@ -614,6 +669,7 @@ const SOURCE_ICONS={'Wallet':'👛','Bank Account':'🏦','Debit Card':'💳','C
 const CATEGORY_ICONS={'Salary':'💼','Freelance':'🧑‍💻','Investment':'📈','Gift':'🎁','Refund':'↩️','Side Hustle':'🪄','Food':'🍔','Transport':'🚗','Utilities':'💡','Rent':'🏠','Shopping':'🛍️','Entertainment':'🎮','Healthcare':'💊','Education':'📚','Insurance':'🛡️','Subscriptions':'📺','Bills':'🧾','Debt Repayment':'🤝','Debt Collected':'🤝','Other':'📦','Discrepancy':'⚖️'};
 function catIcon(cat){return CATEGORY_ICONS[cat]||(cat&&cat.toLowerCase().includes('debt')?'🤝':'📦');}
 
+function getOrdinal(n){const s=['th','st','nd','rd'];const v=n%100;return s[(v-20)%10]||s[v]||s[0];}
 function getCurrency(){return DB.get('currency','USD');}
 function getSymbol(c){return(CURRENCIES.find(x=>x.code===c)||CURRENCIES[0]).symbol;}
 function fmt(n,c){c=c||getCurrency();const s=getSymbol(c);const abs=Math.abs(n);return(n<0?'-':'')+s+abs.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});}
@@ -625,6 +681,8 @@ let txFilterMonth=new Date().getMonth();
 let txFilterYear=new Date().getFullYear();
 let txFilterType='ALL';
 let txSearch='';
+let txAmtMin='';   // Feature 5: amount-range filter (min)
+let txAmtMax='';   // Feature 5: amount-range filter (max)
 let projYear=new Date().getFullYear();
 let projTab='setup';
 let billsViewMonth=new Date().getMonth();
@@ -652,6 +710,102 @@ function getBillRemaining(bill,paidMap){
 }
 function isBillFullyPaid(bill,paidMap){
   return getBillPaidAmount(bill,paidMap)>=bill.amount;
+}
+// ===== NEW: BILL START MONTH (scheduled start) =====
+// Determines whether a bill is active/applicable for a given month index (0-11).
+//  • One-time bills (recurring===false): only active in their exact month.
+//  • Recurring bills: active every month, but if a startMonth is set the bill
+//    only begins from that month onward (earlier months are skipped/planned).
+function billActiveInMonth(b,monthIdx){
+  if(!b) return false;
+  if(b.recurring===false) return b.month===monthIdx;
+  if(b.startMonth!=null && monthIdx < b.startMonth) return false;
+  return true;
+}
+
+// ===== NEW: PER-MONTH BILL OVERRIDES (Feature 1) =====
+// Stores one-time amount/dueDay overrides for a recurring bill in a specific month
+// without touching the recurring template. Storage shape:
+//   billMonthOverrides_<year> = { <month>: { <billId>: {amount?, dueDay?} } }
+function getBillMonthOverrides(year){return DB.get('billMonthOverrides_'+year,{});}
+function getBillOverrideFor(year,month,billId){
+  const all=getBillMonthOverrides(year);
+  return (all[month]&&all[month][billId])?all[month][billId]:null;
+}
+// Returns a (possibly cloned) bill with month-specific amount/dueDay applied.
+// The clone keeps the SAME id so payment maps & lookups continue to work.
+function applyBillOverride(bill,year,month){
+  if(!bill||month==null) return bill;
+  const ov=getBillOverrideFor(year,month,bill.id);
+  if(!ov) return bill;
+  const clone={...bill,_monthOverride:true};
+  if(typeof ov.amount==='number') clone.amount=ov.amount;
+  if(ov.dueDay!==undefined) clone.dueDay=ov.dueDay;
+  return clone;
+}
+// Apply overrides across an array of bills for a given month.
+function applyBillOverridesArr(arr,year,month){
+  return arr.map(b=>applyBillOverride(b,year,month));
+}
+function setBillMonthOverride(year,month,billId,patch){
+  const all=getBillMonthOverrides(year);
+  if(!all[month]) all[month]={};
+  all[month][billId]={...(all[month][billId]||{}),...patch};
+  DB.set('billMonthOverrides_'+year,all);
+}
+function clearBillMonthOverride(year,month,billId){
+  const all=getBillMonthOverrides(year);
+  if(all[month]&&all[month][billId]){
+    delete all[month][billId];
+    if(Object.keys(all[month]).length===0) delete all[month];
+    DB.set('billMonthOverrides_'+year,all);
+  }
+}
+function hasBillMonthOverride(year,month,billId){return !!getBillOverrideFor(year,month,billId);}
+// Reset a month override (called from the bill row badge action)
+function resetBillMonthOverride(year,month,billId){
+  confirmModal({
+    title:'Reset this month\u2019s override?',
+    message:'This bill will go back to using the recurring template amount and due date for '+MONTHS[month]+'.',
+    icon:'info',confirmText:'Reset',confirmClass:'btn-primary',
+    onConfirm:()=>{clearBillMonthOverride(year,month,billId);showToast('Override reset','success');render();}
+  });
+}
+
+// ===== NEW: STYLED CONFIRM DIALOG (Feature 7) =====
+// Replaces native confirm(). Usage:
+//   confirmModal({title, message, icon:'danger'|'warn'|'info', confirmText, cancelText, confirmClass, onConfirm})
+let _confirmCb=null;
+function confirmModal(opts){
+  opts=opts||{};
+  _confirmCb=typeof opts.onConfirm==='function'?opts.onConfirm:null;
+  const icon=opts.icon||'danger';
+  const icoChar=opts.iconChar||(icon==='danger'?'\uD83D\uDDD1\uFE0F':icon==='warn'?'\u26A0\uFE0F':'\u2139\uFE0F');
+  const confirmText=opts.confirmText||'Delete';
+  const cancelText=opts.cancelText||'Cancel';
+  const confirmClass=opts.confirmClass||'btn-danger';
+  const html=`<div class="modal-overlay" onclick="if(event.target===this)_closeConfirm()"><div class="modal confirm-modal">
+    <div class="confirm-icon ${icon}">${icoChar}</div>
+    <div class="confirm-title">${opts.title||'Are you sure?'}</div>
+    <div class="confirm-msg">${opts.message||''}</div>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" onclick="_closeConfirm()">${cancelText}</button>
+      <button class="btn ${confirmClass}" onclick="_runConfirm()">${confirmText}</button>
+    </div>
+  </div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
+function _closeConfirm(){
+  const overlays=document.querySelectorAll('.modal-overlay');
+  // remove only the topmost (the confirm) overlay
+  if(overlays.length) overlays[overlays.length-1].remove();
+  _confirmCb=null;
+}
+function _runConfirm(){
+  const cb=_confirmCb;_confirmCb=null;
+  const overlays=document.querySelectorAll('.modal-overlay');
+  if(overlays.length) overlays[overlays.length-1].remove();
+  if(cb) cb();
 }
 
 // ===== CURRENT PERIOD (auto by date, but user can override per month) =====
@@ -685,7 +839,7 @@ function setCurrentPeriod(year,month,period){
         const sources=DB.get('sources',[]);
         const curBal=sources.reduce((s,x)=>s+x.balance,0);
         const billsAll=DB.get('bills_'+year,[]);
-        const forMonth=arr=>arr.filter(b=>b.recurring!==false||b.month===month);
+        const forMonth=arr=>applyBillOverridesArr(arr.filter(b=>billActiveInMonth(b,month)),year,month);
         const pm=DB.get('billPaid_'+year+'_'+month,{});
         const carryover=getCarryoverUnpaidBills(year,month,prev);
         const bills15=forMonth(billsAll.filter(b=>b.period==='BEFORE_15TH'));
@@ -718,14 +872,14 @@ function getCarryoverUnpaidBills(year,curMonth,curPeriod){
   let total=0; const items=[];
   for(let m=0;m<curMonth;m++){
     const pm=DB.get('billPaid_'+year+'_'+m,{});
-    bills.filter(b=>b.recurring!==false||b.month===m).forEach(b=>{
+    applyBillOverridesArr(bills.filter(b=>billActiveInMonth(b,m)),year,m).forEach(b=>{
       const rem=getBillRemaining(b,pm);
       if(rem>0){total+=rem;items.push({month:m,period:b.period,bill:b,remaining:rem});}
     });
   }
   if(curPeriod==='END'){
     const pm=DB.get('billPaid_'+year+'_'+curMonth,{});
-    bills.filter(b=>(b.recurring!==false||b.month===curMonth)&&b.period==='BEFORE_15TH').forEach(b=>{
+    applyBillOverridesArr(bills.filter(b=>billActiveInMonth(b,curMonth)&&b.period==='BEFORE_15TH'),year,curMonth).forEach(b=>{
       const rem=getBillRemaining(b,pm);
       if(rem>0){total+=rem;items.push({month:curMonth,period:'BEFORE_15TH',bill:b,remaining:rem});}
     });
@@ -744,6 +898,8 @@ function onSearchInput(stateKey, ev){
   if(stateKey==='txSearch') txSearch=value;
   else if(stateKey==='debtSearch') debtSearch=value;
   else if(stateKey==='billSearch') billSearch=value;
+  else if(stateKey==='txAmtMin') txAmtMin=value;
+  else if(stateKey==='txAmtMax') txAmtMax=value;
   _activeSearchField={id:el.id, selStart:el.selectionStart, selEnd:el.selectionEnd};
   clearTimeout(_searchDebounceTimer);
   _searchDebounceTimer=setTimeout(()=>{render();},300);
@@ -910,19 +1066,32 @@ function renderDashboard(){
   const expMo=monthTxs.filter(t=>t.type==='EXPENSE').reduce((s,t)=>s+t.amount,0);
   // Bills paid status for current month
   const paidMap=DB.get('billPaid_'+yr+'_'+mo,{});
-  const monthBills=bills.filter(b=>b.recurring!==false||b.month===mo);
+  const monthBills=applyBillOverridesArr(bills.filter(b=>billActiveInMonth(b,mo)),yr,mo);
   const totMonthBills=monthBills.reduce((s,b)=>s+b.amount,0);
   const remMonthBills=monthBills.reduce((s,b)=>s+getBillRemaining(b,paidMap),0);
   const billPct=totMonthBills>0?Math.round((totMonthBills-remMonthBills)/totMonthBills*100):0;
   // Debts summary
   const owedToMe=debts.filter(d=>!d.settled&&d.direction==='OWED_TO_ME').reduce((s,d)=>s+(d.total-(d.paid||0)),0);
   const iOwe=debts.filter(d=>!d.settled&&d.direction==='I_OWE').reduce((s,d)=>s+(d.total-(d.paid||0)),0);
+  // Feature 4: top debtors (owe me) & creditors (I owe) for the debt summary widget
+  const debtPeople=getDebtPeopleSummary();
+  const topDebtors=debtPeople.filter(p=>p.remainingOwedToMe>0).sort((a,b)=>b.remainingOwedToMe-a.remainingOwedToMe).slice(0,3);
+  const topCreditors=debtPeople.filter(p=>p.remainingIOwe>0).sort((a,b)=>b.remainingIOwe-a.remainingIOwe).slice(0,3);
   const recent=txs.slice().sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,6);
   const sortedSources=sources.slice().sort((a,b)=>b.balance-a.balance);
   const maxSrc=Math.max(...sortedSources.map(s=>Math.abs(s.balance)),1);
-  // Upcoming bills (next 7 days within current month)
+  // Feature 3: Bill reminders — overdue + due within 7 days (unpaid), current month.
   const today=new Date().getDate();
-  const upcoming=monthBills.filter(b=>b.dueDay&&b.dueDay>=today&&b.dueDay<=today+7&&getBillRemaining(b,paidMap)>0).sort((a,b)=>a.dueDay-b.dueDay).slice(0,4);
+  const reminderBills=monthBills
+    .filter(b=>b.dueDay&&getBillRemaining(b,paidMap)>0&&(b.dueDay<today||b.dueDay<=today+7))
+    .map(b=>{
+      const days=b.dueDay-today; // negative = overdue
+      const sev=days<0?0:days===0?1:days<=3?2:3; // 0 overdue,1 today,2 soon,3 later
+      return {bill:b,days,sev};
+    })
+    .sort((a,b)=>a.sev-b.sev||a.days-b.days)
+    .slice(0,5);
+  const overdueCount=reminderBills.filter(r=>r.sev===0).length;
   const userName=Auth.currentUser()?.name||'User';
   const hour=new Date().getHours();
   const greeting=hour<5?'Working late':hour<12?'Good morning':hour<18?'Good afternoon':'Good evening';
@@ -996,16 +1165,20 @@ function renderDashboard(){
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-top:16px">
-      ${upcoming.length>0?`<div class="glass-card animate-fadeInUp stagger-5">
-        <div class="card-header" style="font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px;justify-content:space-between"><span>⏰ Upcoming Bills</span><button class="btn btn-ghost btn-sm" style="font-size:10px" onclick="navigate('projections')">All bills →</button></div>
-        <div class="card-body">${upcoming.map(b=>{
-          const days=b.dueDay-today;
-          const urgClass=days===0?'due-today':days<=3?'due-soon':'due-ok';
-          const label=days===0?'⏰ Today':days===1?'Tomorrow':'In '+days+'d';
-          return `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);gap:8px">
+      ${reminderBills.length>0?`<div class="glass-card animate-fadeInUp stagger-5">
+        <div class="card-header" style="font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px;justify-content:space-between"><span>⏰ Bill Reminders${overdueCount>0?` <span class="rem-badge rem-overdue" style="margin-left:4px">${overdueCount} overdue</span>`:''}</span><button class="btn btn-ghost btn-sm" style="font-size:10px" onclick="navigate('projections')">All bills →</button></div>
+        <div class="card-body">${reminderBills.map(r=>{
+          const b=r.bill, days=r.days;
+          let badge,cls;
+          if(days<0){cls='rem-overdue';badge='⚠️ '+Math.abs(days)+'d overdue';}
+          else if(days===0){cls='rem-today';badge='⏰ Due today';}
+          else if(days<=3){cls='rem-soon';badge='⚡ In '+days+'d';}
+          else {cls='rem-soon';badge='📅 In '+days+'d';}
+          const dueLabel='Due '+b.dueDay+getOrdinal(b.dueDay);
+          return `<div class="reminder-row ${days<0?'is-overdue':''}">
             <div style="display:flex;align-items:center;gap:10px;min-width:0;flex:1"><span style="font-size:16px">${catIcon(b.category)}</span>
-              <div style="min-width:0"><div style="font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${b.name}</div><div style="font-size:10px;color:#525252"><span class="due-badge ${urgClass}">${label}</span></div></div></div>
-            <span class="font-mono" style="font-weight:700;font-size:13px;color:#ef4444;flex-shrink:0">${fmt(getBillRemaining(b,paidMap))}</span>
+              <div style="min-width:0"><div style="font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${b.name}</div><div style="font-size:10px;color:#525252">${dueLabel} · <span class="font-mono" style="color:#ef4444">${fmt(getBillRemaining(b,paidMap))}</span></div></div></div>
+            <span class="rem-badge ${cls}">${badge}</span>
           </div>`;
         }).join('')}</div></div>`:''}
       ${(owedToMe>0||iOwe>0)?`<div class="glass-card animate-fadeInUp stagger-5">
@@ -1021,7 +1194,17 @@ function renderDashboard(){
               <div class="font-mono" style="font-size:18px;font-weight:700;color:#ef4444;margin-top:4px">${fmt(iOwe)}</div>
             </div>
           </div>
-          <div style="font-size:11px;color:${owedToMe-iOwe>=0?'#10b981':'#ef4444'};font-weight:700;text-align:center;margin-top:10px">Net position: ${owedToMe-iOwe>=0?'+':''}${fmt(owedToMe-iOwe)}</div>
+          ${topDebtors.length>0?`<div style="margin-top:12px"><div style="font-size:10px;color:#737373;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px">Top owed to you</div>${topDebtors.map(p=>`
+            <div class="debt-people-row" onclick="debtViewPerson='${(p.person||'').replace(/'/g,"\\'")}';navigate('debts')" style="cursor:pointer">
+              <div style="display:flex;align-items:center;gap:8px;min-width:0"><span class="dp-avatar me">${(p.person||'?').charAt(0).toUpperCase()}</span><span style="font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.person}</span></div>
+              <span class="font-mono" style="font-size:12px;font-weight:700;color:#10b981;flex-shrink:0">${fmt(p.remainingOwedToMe)}</span>
+            </div>`).join('')}</div>`:''}
+          ${topCreditors.length>0?`<div style="margin-top:10px"><div style="font-size:10px;color:#737373;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px">Top you owe</div>${topCreditors.map(p=>`
+            <div class="debt-people-row" onclick="debtViewPerson='${(p.person||'').replace(/'/g,"\\'")}';navigate('debts')" style="cursor:pointer">
+              <div style="display:flex;align-items:center;gap:8px;min-width:0"><span class="dp-avatar owe">${(p.person||'?').charAt(0).toUpperCase()}</span><span style="font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.person}</span></div>
+              <span class="font-mono" style="font-size:12px;font-weight:700;color:#ef4444;flex-shrink:0">${fmt(p.remainingIOwe)}</span>
+            </div>`).join('')}</div>`:''}
+          <div style="font-size:11px;color:${owedToMe-iOwe>=0?'#10b981':'#ef4444'};font-weight:700;text-align:center;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.05)">Net position: ${owedToMe-iOwe>=0?'+':''}${fmt(owedToMe-iOwe)}</div>
         </div></div>`:''}
     </div>`;
 }
@@ -1088,6 +1271,8 @@ function renderSources(){
 function renderTransactions(){
   const txs=DB.get('transactions',[]);const sources=DB.get('sources',[]);
   const searchLower=txSearch.toLowerCase();
+  const amtMin=txAmtMin!==''&&!isNaN(parseFloat(txAmtMin))?parseFloat(txAmtMin):null;
+  const amtMax=txAmtMax!==''&&!isNaN(parseFloat(txAmtMax))?parseFloat(txAmtMax):null;
   let filtered=txs.filter(t=>{
     const d=new Date(t.date);
     if(d.getMonth()!==txFilterMonth||d.getFullYear()!==txFilterYear)return false;
@@ -1097,8 +1282,11 @@ function renderTransactions(){
       const hay=((t.category||'')+' '+(t.description||'')+' '+src).toLowerCase();
       if(!hay.includes(searchLower))return false;
     }
+    if(amtMin!==null&&t.amount<amtMin)return false;
+    if(amtMax!==null&&t.amount>amtMax)return false;
     return true;
   });
+  const amtFilterActive=amtMin!==null||amtMax!==null;
   // Sort
   if(txSort==='date-desc') filtered.sort((a,b)=>new Date(b.date)-new Date(a.date));
   else if(txSort==='date-asc') filtered.sort((a,b)=>new Date(a.date)-new Date(b.date));
@@ -1163,6 +1351,7 @@ function renderTransactions(){
           ${src?`<span>•</span><span>${SOURCE_ICONS[src.type]||'💰'} ${src.name}</span>`:''}
           ${t.debtId||t.debtGroupId?'<span>•</span><span style="color:#a78bfa">🤝 from debt</span>':''}
           ${t.billId?'<span>•</span><span style="color:#60a5fa">🧾 from bill</span>':''}
+          ${t.splits&&t.splits.length?`<span class="split-badge" onclick="event.stopPropagation();openTxSplitDetail('${t.id}')" style="cursor:pointer" title="View split details">🔗 split with ${t.splits.length===1?t.splits[0].person:t.splits.length+' people'}</span>`:''}
         </div>
       </div>
       <div class="tx-amt" style="color:${isInc?'#10b981':'#ef4444'}">${isInc?'+':'−'}${fmt(t.amount)}</div>
@@ -1189,6 +1378,16 @@ function renderTransactions(){
       ${chip('INCOME','📈 Income',txFilterType,'txFilterType','income')}
       ${chip('EXPENSE','📉 Expense',txFilterType,'txFilterType','expense')}
       <input type="text" id="txSearchInput" placeholder="🔍 Search category, note, source..." value="${txSearch}" oninput="onSearchInput('txSearch',event)" style="flex:1;min-width:180px;max-width:300px;font-size:12px;margin-left:auto">
+    </div>
+    <div class="animate-fadeInUp stagger-1" style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
+      <span style="font-size:11px;color:#737373;display:flex;align-items:center;gap:4px">💵 Amount</span>
+      <div class="search-range">
+        <input type="text" inputmode="decimal" id="txAmtMinInput" placeholder="Min" value="${txAmtMin}" oninput="onSearchInput('txAmtMin',event)" style="font-size:12px">
+        <span style="color:#525252;font-size:12px">–</span>
+        <input type="text" inputmode="decimal" id="txAmtMaxInput" placeholder="Max" value="${txAmtMax}" oninput="onSearchInput('txAmtMax',event)" style="font-size:12px">
+      </div>
+      ${(txSearch||amtFilterActive)?`<button class="btn btn-ghost btn-sm" onclick="txSearch='';txAmtMin='';txAmtMax='';render()" style="border:1px solid rgba(239,68,68,.25);color:#fca5a5;font-size:10px">✕ Clear filters</button>`:''}
+      ${amtFilterActive?`<span style="font-size:10px;color:#a78bfa">${filtered.length} match${filtered.length!==1?'es':''} in range</span>`:''}
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px">
       ${statCard('Income',fmt(inc),'📈','#10b981','stagger-2')}
@@ -1232,7 +1431,7 @@ function renderProjections(){
   const carryover=getCarryoverUnpaidBills(projYear,curMonth,curPeriod);
 
   // Helper: filter bills applicable to a given month (recurring + one-time matching that month)
-  function billsForMonth(allBills,monthIdx){return allBills.filter(b=>b.recurring!==false||b.month===monthIdx);}
+  function billsForMonth(allBills,monthIdx){return applyBillOverridesArr(allBills.filter(b=>billActiveInMonth(b,monthIdx)),projYear,monthIdx);}
   const bills15All=bills.filter(b=>b.period==='BEFORE_15TH');
   const billsEndAll=bills.filter(b=>b.period==='BEFORE_END');
   // Global totals for Setup tab display (all recurring + current month one-time)
@@ -1341,6 +1540,10 @@ function renderProjSetup(proj,bills15,billsEnd,totBills15,totBillsEnd,isCurYear,
   const actualMonth=new Date().getMonth();
   const actualYear=new Date().getFullYear();
   const isViewingActual=isCurYear&&viewMonth===actualMonth;
+  // Feature 1: apply per-month bill overrides so individual bill rows reflect the
+  // viewed month's one-time edits (amount/dueDay), matching the column totals below.
+  bills15=applyBillOverridesArr(bills15,projYear,viewMonth);
+  billsEnd=applyBillOverridesArr(billsEnd,projYear,viewMonth);
   function getOrdinal(n){const s=['th','st','nd','rd'];const v=n%100;return s[(v-20)%10]||s[v]||s[0];}
   function billDueBadge(b){
     if(!b.dueDay)return '';
@@ -1359,7 +1562,9 @@ function renderProjSetup(proj,bills15,billsEnd,totBills15,totBillsEnd,isCurYear,
     const fullyPaid=paidAmt>=b.amount;
     const partial=paidAmt>0&&!fullyPaid;
     const isRec=b.recurring!==false;
-    const isThisMonth=isRec||b.month===viewMonth;
+    const isThisMonth=billActiveInMonth(b,viewMonth);
+    // A recurring bill scheduled to begin in a later month than the one being viewed.
+    const notStartedYet=isRec&&b.startMonth!=null&&viewMonth<b.startMonth;
     const status=fullyPaid?'paid':(partial?'partial':'unpaid');
     const statusIcon=fullyPaid?'✓':(partial?'◐':'✗');
     const pct=b.amount>0?Math.min(100,Math.round(paidAmt/b.amount*100)):0;
@@ -1367,7 +1572,11 @@ function renderProjSetup(proj,bills15,billsEnd,totBills15,totBillsEnd,isCurYear,
     const freqBadge=isRec
       ? '<span style="background:rgba(124,58,237,.15);color:#a78bfa;border:1px solid rgba(124,58,237,.25);border-radius:4px;padding:1px 5px;font-size:9px;font-weight:600;white-space:nowrap">🔁 Recurring</span>'
       : '<span style="background:rgba(251,191,36,.12);color:#fbbf24;border:1px solid rgba(251,191,36,.25);border-radius:4px;padding:1px 5px;font-size:9px;font-weight:600;white-space:nowrap">📌 '+SHORT[b.month]+' only</span>';
+    const startBadge=(isRec&&b.startMonth!=null)
+      ? `<span style="background:rgba(56,189,248,.12);color:#38bdf8;border:1px solid rgba(56,189,248,.28);border-radius:4px;padding:1px 5px;font-size:9px;font-weight:600;white-space:nowrap" title="This bill starts in ${MONTHS[b.startMonth]}">📆 ${notStartedYet?'Starts':'Since'} ${SHORT[b.startMonth]}</span>`
+      : '';
     const dueBadge=isThisMonth?billDueBadge(b):'';
+    const ovrBadge=b._monthOverride?`<span class="ovr-badge" title="Customized for ${monthLabel} only">✎ ${monthLabel} only</span>`:'';
     const catIc=catIcon(b.category);
     const amtRight=fullyPaid
       ? `<span class="font-mono" style="font-size:13px;color:#10b981;font-weight:700">${fmt(b.amount)}</span><span style="font-size:9px;color:#737373;font-weight:600">PAID</span>`
@@ -1380,7 +1589,9 @@ function renderProjSetup(proj,bills15,billsEnd,totBills15,totBillsEnd,isCurYear,
         <div class="bill-name"><span style="margin-right:5px;opacity:.85">${catIc}</span>${b.name}</div>
         <div class="bill-meta">
           ${freqBadge}
+          ${startBadge}
           ${dueBadge}
+          ${ovrBadge}
           <span style="font-size:9px;color:#525252">${b.category||'Bills'}</span>
         </div>
         ${(partial||fullyPaid)&&isThisMonth?`<div class="bill-progress"><span style="width:${pct}%;background:${barColor}"></span></div>`:''}
@@ -1388,13 +1599,14 @@ function renderProjSetup(proj,bills15,billsEnd,totBills15,totBillsEnd,isCurYear,
       <div class="bill-amt">${amtRight}</div>
       <div class="bill-actions">
         <button class="btn btn-ghost btn-sm" onclick="openBillDialog(null,'${b.id}')" title="Edit bill">✏️</button>
+        ${b._monthOverride?`<button class="btn btn-ghost btn-sm" onclick="resetBillMonthOverride(${projYear},${viewMonth},'${b.id}')" title="Reset ${monthLabel} override to recurring template">↺</button>`:''}
         <button class="btn btn-danger btn-sm" onclick="deleteBill('${b.id}')" title="Delete bill">🗑</button>
       </div>
     </div>`;
   }
-  // Per-view-month totals
-  const curBills15=bills15.filter(b=>b.recurring!==false||b.month===viewMonth);
-  const curBillsEnd=billsEnd.filter(b=>b.recurring!==false||b.month===viewMonth);
+  // Per-view-month totals (apply any one-time month overrides for the viewed month)
+  const curBills15=applyBillOverridesArr(bills15.filter(b=>billActiveInMonth(b,viewMonth)),projYear,viewMonth);
+  const curBillsEnd=applyBillOverridesArr(billsEnd.filter(b=>billActiveInMonth(b,viewMonth)),projYear,viewMonth);
   const unpaid15=curBills15.reduce((s,b)=>s+getBillRemaining(b,paidMap),0);
   const unpaidEnd=curBillsEnd.reduce((s,b)=>s+getBillRemaining(b,paidMap),0);
   const curTot15=curBills15.reduce((s,b)=>s+b.amount,0);
@@ -1412,7 +1624,7 @@ function renderProjSetup(proj,bills15,billsEnd,totBills15,totBillsEnd,isCurYear,
     if(billSearch){const q=billSearch.toLowerCase();out=out.filter(b=>(b.name||'').toLowerCase().includes(q)||(b.category||'').toLowerCase().includes(q));}
     if(billFilter!=='all'){
       out=out.filter(b=>{
-        const isRec=b.recurring!==false;const isThisMonth=isRec||b.month===viewMonth;if(!isThisMonth)return false;
+        const isThisMonth=billActiveInMonth(b,viewMonth);if(!isThisMonth)return false;
         const pa=getBillPaidAmount(b,paidMap);
         if(billFilter==='paid') return pa>=b.amount;
         if(billFilter==='partial') return pa>0&&pa<b.amount;
@@ -1586,7 +1798,7 @@ function closeProjLandscape(){
 }
 
 function payAllBills(period){
-  const bills=DB.get('bills_'+projYear,[]).filter(b=>b.period===period&&(b.recurring!==false||b.month===billsViewMonth));
+  const bills=DB.get('bills_'+projYear,[]).filter(b=>b.period===period&&billActiveInMonth(b,billsViewMonth));
   if(bills.length===0){showToast('No bills to pay','info');return;}
   const m=billsViewMonth, y=projYear;
   const key='billPaid_'+y+'_'+m;
@@ -1594,11 +1806,14 @@ function payAllBills(period){
   const unpaid=bills.filter(b=>getBillPaidAmount(b,pm)<b.amount);
   if(unpaid.length===0){showToast('All bills already fully paid for '+SHORT[m],'info');return;}
   const totalRemaining=unpaid.reduce((s,b)=>s+(b.amount-getBillPaidAmount(b,pm)),0);
-  if(!confirm(`Mark ${unpaid.length} unpaid bill(s) as fully paid for ${SHORT[m]} ${y}?\nTotal remaining: ${fmt(totalRemaining)}\n\n(Source balances are NOT deducted by this shortcut. Pay individually if you need to record the source.)`)) return;
-  unpaid.forEach(b=>{pm[b.id]=b.amount;});
-  DB.set(key,pm);
-  showToast(`Marked ${unpaid.length} bill(s) as paid for ${SHORT[m]} ${y}`,'success');
-  render();
+  confirmModal({title:`Mark ${unpaid.length} bill(s) as paid?`,icon:'info',confirmText:'Mark Paid',confirmClass:'btn-primary',
+    message:`Mark ${unpaid.length} unpaid bill(s) as fully paid for ${SHORT[m]} ${y}? Total remaining: ${fmt(totalRemaining)}.<br><br>Source balances are <b>not</b> deducted by this shortcut \u2014 pay individually if you need to record the source.`,
+    onConfirm:()=>{
+      unpaid.forEach(b=>{pm[b.id]=b.amount;});
+      DB.set(key,pm);
+      showToast(`Marked ${unpaid.length} bill(s) as paid for ${SHORT[m]} ${y}`,'success');
+      render();
+    }});
 }
 
 // Mark every carried-over (previous-period) unpaid bill as fully paid.
@@ -1609,17 +1824,20 @@ function payAllCarryoverBills(){
   const curPeriod=getCurrentPeriod(projYear,curMonth);
   const carryover=getCarryoverUnpaidBills(projYear,curMonth,curPeriod);
   if(!carryover.total||carryover.items.length===0){showToast('No carryover bills to pay','info');return;}
-  if(!confirm(`Mark all ${carryover.items.length} carryover bill(s) as fully paid?\nTotal: ${fmt(carryover.total)}\n\n(Source balances are NOT deducted by this shortcut. Pay individually to record sources.)`)) return;
-  // Group by month key so we minimize DB writes.
-  const byMonth={};
-  carryover.items.forEach(it=>{
-    const k='billPaid_'+projYear+'_'+it.month;
-    if(!byMonth[k]) byMonth[k]=DB.get(k,{});
-    byMonth[k][it.bill.id]=it.bill.amount;
-  });
-  Object.keys(byMonth).forEach(k=>DB.set(k,byMonth[k]));
-  showToast(`Cleared ${carryover.items.length} carryover bill(s) \u2014 ${fmt(carryover.total)} marked paid`,'success');
-  render();
+  confirmModal({title:`Clear ${carryover.items.length} carryover bill(s)?`,icon:'info',confirmText:'Mark Paid',confirmClass:'btn-primary',
+    message:`Mark all ${carryover.items.length} carryover bill(s) as fully paid? Total: ${fmt(carryover.total)}.<br><br>Source balances are <b>not</b> deducted by this shortcut \u2014 pay individually to record sources.`,
+    onConfirm:()=>{
+      // Group by month key so we minimize DB writes.
+      const byMonth={};
+      carryover.items.forEach(it=>{
+        const k='billPaid_'+projYear+'_'+it.month;
+        if(!byMonth[k]) byMonth[k]=DB.get(k,{});
+        byMonth[k][it.bill.id]=it.bill.amount;
+      });
+      Object.keys(byMonth).forEach(k=>DB.set(k,byMonth[k]));
+      showToast(`Cleared ${carryover.items.length} carryover bill(s) \u2014 ${fmt(carryover.total)} marked paid`,'success');
+      render();
+    }});
 }
 
 function projInput(label,val,key,sym){
@@ -1840,10 +2058,13 @@ function resetAllProjOverrides(){
   const ov=DB.get('overrides_'+projYear,{});
   const count=Object.keys(ov).length;
   if(count===0){showToast('No overrides to reset','info');return;}
-  if(!confirm(`Reset all ${count} month override(s) for ${projYear}?\n\nThis returns every manually edited cell to its calculated value.`))return;
-  DB.set('overrides_'+projYear,{});
-  showToast('All projection overrides cleared','success');
-  render();
+  confirmModal({title:`Reset ${count} override(s)?`,icon:'warn',confirmText:'Reset All',
+    message:`Reset all ${count} month override(s) for ${projYear}? This returns every manually edited cell to its calculated value.`,
+    onConfirm:()=>{
+      DB.set('overrides_'+projYear,{});
+      showToast('All projection overrides cleared','success');
+      render();
+    }});
 }
 
 // ===== ANALYSIS =====
@@ -2028,7 +2249,7 @@ function renderSettings(){
         <div class="card-body">
           <div class="setting-row">
             <div><div class="setting-label" style="color:#fca5a5">Reset all data</div><div class="setting-help">Deletes every transaction, source, bill, and debt for this account. This cannot be undone.</div></div>
-            <button class="btn btn-danger btn-sm" onclick="if(confirm('Delete ALL your data? This cannot be undone.')){clearUserData();showToast('Data cleared','success');render();}">🗑 Reset</button>
+            <button class="btn btn-danger btn-sm" onclick="confirmModal({title:'Delete ALL your data?',icon:'danger',confirmText:'Delete Everything',message:'This permanently erases every source, transaction, bill, debt and projection for your account. This cannot be undone.',onConfirm:()=>{clearUserData();showToast('Data cleared','success');render();}})">🗑 Reset</button>
           </div>
         </div>
       </div>
@@ -2293,14 +2514,37 @@ function confirmCalcAdjust(){
   if(isIncrease){sources[idx].balance+=absVal;}else{sources[idx].balance-=absVal;}
   DB.set('sources',sources);
   const txs=DB.get('transactions',[]);
-  txs.push({id:DB.id(),type:isIncrease?'INCOME':'EXPENSE',category:cat,amount:absVal,sourceId:srcId,date:new Date().toISOString(),description:desc});
+  const newTxId=DB.id();
+  const newTx={id:newTxId,type:isIncrease?'INCOME':'EXPENSE',category:cat,amount:absVal,sourceId:srcId,date:new Date().toISOString(),description:desc};
+
+  // Debt split: collect split rows for expense/deduct transactions
+  let createdDebts=0;
+  if(!isIncrease){
+    const splits=_collectCpSplitRows();
+    if(splits.length){
+      const debts=DB.get('debts',[]);
+      const splitMeta=[];
+      splits.forEach(sp=>{
+        const debtId=DB.id();
+        debts.push({id:debtId,person:sp.person,direction:'OWED_TO_ME',total:sp.amount,paid:0,settled:false,payments:[],date:new Date().toISOString(),description:(desc||cat||'Shared expense')+' (split)',txId:newTxId});
+        createdDebts++;
+        splitMeta.push({person:sp.person,amount:sp.amount,debtId});
+      });
+      DB.set('debts',debts);
+      newTx.splits=splitMeta;
+    }
+  }
+
+  txs.push(newTx);
   DB.set('transactions',txs);
   const label=isIncrease?'Increase':'Deduct';
   calcHistory.push({expr:`${label} ${fmt(absVal)} → ${sources[idx].name} (${desc})`,result:fmt(sources[idx].balance),ts:Date.now()});
   if(calcHistory.length>50)calcHistory=calcHistory.slice(-50);
   saveCalcHistory();
-  showToast(`${label}ed ${fmt(absVal)} ${isIncrease?'to':'from'} ${sources[idx].name}`,'success');
+  const debtMsg=createdDebts>0?` + ${createdDebts} debt${createdDebts>1?'s':''} linked`:'';
+  showToast(`${label}ed ${fmt(absVal)} ${isIncrease?'to':'from'} ${sources[idx].name}${debtMsg}`,'success');
   calcPrompt=null;
+  _cpSplitOpen=false;
   calcAdjustSrcId=srcId; // keep source locked for follow-up adjustments
   renderCalcDrawer();
   render();
@@ -2325,8 +2569,38 @@ function calcLoadBalance(bal){
   renderCalcDrawer();
   showToast('Loaded '+fmt(bal)+' into calculator','info');
 }
-function calcPromptCancel(){calcPrompt=null;renderCalcDrawer();}
+function calcPromptCancel(){calcPrompt=null;_cpSplitOpen=false;renderCalcDrawer();}
 function _cpStashInputs(){if(!calcPrompt||calcPrompt.kind!=='confirm')return;const d=document.getElementById('cpDesc');const c=document.getElementById('cpCat');if(d)calcPrompt.desc=d.value;if(c)calcPrompt.cat=c.value;}
+let _cpSplitOpen=false;
+function toggleCpSplit(){
+  _cpSplitOpen=!_cpSplitOpen;
+  const sec=document.getElementById('cpSplitSection');
+  if(!sec)return;
+  if(_cpSplitOpen){sec.style.display='block';sec.classList.add('open');if(!document.querySelectorAll('#cpSplitRows .split-row').length)addCpSplitRow();}
+  else{sec.style.display='none';sec.classList.remove('open');}
+}
+function addCpSplitRow(name,amount){
+  const sr=document.getElementById('cpSplitRows');if(!sr)return;
+  const contacts=getDebtContacts();
+  const row=document.createElement('div');
+  row.className='split-row';
+  row.style.cssText='display:flex;gap:6px;margin-bottom:7px;align-items:center';
+  row.innerHTML=`<input type="text" class="cp-split-name" list="cpContactsList" placeholder="Person's name" value="${(name||'').replace(/"/g,'&quot;')}" style="flex:1.4;min-width:0;font-size:12px">
+    <input type="number" step="0.01" class="cp-split-amt" placeholder="Owes you" value="${amount!=null?amount:''}" style="flex:1;min-width:0;font-size:12px">
+    <button type="button" class="btn btn-ghost btn-sm" title="Remove" style="flex-shrink:0;color:#ef4444" onclick="this.parentElement.remove()">✕</button>`;
+  sr.appendChild(row);
+  const ni=row.querySelector('.cp-split-name');if(ni)ni.focus();
+}
+function _collectCpSplitRows(){
+  const rows=document.querySelectorAll('#cpSplitRows .split-row');
+  const result=[];
+  rows.forEach(r=>{
+    const name=(r.querySelector('.cp-split-name')?.value||'').trim();
+    const amt=parseFloat(r.querySelector('.cp-split-amt')?.value);
+    if(name&&!isNaN(amt)&&amt>0) result.push({person:name,amount:amt});
+  });
+  return result;
+}
 function renderCalcPrompt(){
   if(!calcPrompt)return '';
   if(calcPrompt.kind==='load'){
@@ -2357,6 +2631,19 @@ function renderCalcPrompt(){
       <input type="text" id="cpDesc" value="${(desc||'').replace(/"/g,'&quot;')}" placeholder="e.g., Cash count, Bank fee" style="width:100%;font-size:12px;margin-bottom:8px" oninput="_cpStashInputs()" onkeydown="if(event.key==='Enter')confirmCalcAdjust();if(event.key==='Escape')calcPromptCancel()">
       <label class="cp-lbl" style="margin-bottom:3px;display:block">Category</label>
       <select id="cpCat" style="width:100%;font-size:12px;margin-bottom:10px" onchange="_cpStashInputs()">${cats.map(c=>`<option value="${c}"${c===cat?' selected':''}>${c}</option>`).join('')}</select>
+      ${!isInc?`<div class="tx-debt-section" style="border:1px solid rgba(124,58,237,.2);border-radius:10px;overflow:hidden;margin-bottom:10px">
+        <div onclick="toggleCpSplit()" style="display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;background:rgba(124,58,237,.04);user-select:none">
+          <span style="font-size:15px">🤝</span>
+          <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#c4b5fd">Split / add a debt</div><div style="font-size:9.5px;color:#8a8a8a">Track money someone owes you for this expense</div></div>
+          <span style="color:#a78bfa;font-size:12px;transition:transform .2s;display:inline-block;transform:rotate(${_cpSplitOpen?'90':'0'}deg)">▸</span>
+        </div>
+        <div id="cpSplitSection" style="display:${_cpSplitOpen?'block':'none'};padding:10px 12px;border-top:1px solid rgba(124,58,237,.15)">
+          <p style="font-size:10px;color:#8a8a8a;margin-bottom:8px">Add one row per person. Each creates a debt (they owe you) linked to this transaction.</p>
+          <div id="cpSplitRows"></div>
+          <button type="button" class="btn btn-ghost btn-sm" style="width:100%;border:1px dashed rgba(124,58,237,.3);color:#a78bfa;font-size:11px;margin-top:4px" onclick="addCpSplitRow()">+ Add person</button>
+          <datalist id="cpContactsList">${getDebtContacts().map(n=>'<option value="'+(n||'').replace(/"/g,'&amp;quot;')+'"></option>').join('')}</datalist>
+        </div>
+      </div>`:''}
       <div class="cp-actions"><button class="btn btn-ghost btn-sm" style="border:1px solid rgba(255,255,255,.08)" onclick="calcPromptCancel()">Cancel</button><button class="btn ${isInc?'btn-primary':'btn-danger'} btn-sm" onclick="confirmCalcAdjust()">${isInc?'📈 Confirm':'📉 Confirm'}</button></div>
     </div>`;
   }
@@ -2383,11 +2670,14 @@ function openSourceDialog(id){
   document.body.insertAdjacentHTML('beforeend',html);
 }
 function saveSource(id){const sources=DB.get('sources',[]);const name=document.getElementById('srcName').value.trim();if(!name){showToast('Name required','warn');return;}const data={name,type:document.getElementById('srcType').value,balance:parseFloat(document.getElementById('srcBal').value)||0};if(id){const idx=sources.findIndex(s=>s.id===id);if(idx>=0)sources[idx]={...sources[idx],...data};}else sources.push({id:DB.id(),...data});DB.set('sources',sources);document.querySelector('.modal-overlay').remove();showToast(id?'Source updated':'Source added','success');render();}
-function deleteSource(id){if(!confirm('Delete this source?'))return;DB.set('sources',DB.get('sources',[]).filter(x=>x.id!==id));showToast('Source deleted','success');render();}
+function deleteSource(id){confirmModal({title:'Delete this source?',message:'This income/money source will be removed. Transactions linked to it will keep their records.',onConfirm:()=>{DB.set('sources',DB.get('sources',[]).filter(x=>x.id!==id));showToast('Source deleted','success');render();}});}
 
 function openTxDialog(id){
   const txs=DB.get('transactions',[]);const sources=DB.get('sources',[]);const t=id?txs.find(x=>x.id===id):null;
   const today=new Date().toISOString().slice(0,10);
+  const contacts=getDebtContacts();
+  const isNew=!t;
+  const showDebtForExpense=isNew; // debt-linking only offered when ADDING a new expense
   const html=`<div class="modal-overlay" onclick="if(event.target===this)this.remove()"><div class="modal"><div style="padding:24px">
     <h3 style="font-weight:700;margin-bottom:18px;font-size:16px">${t?'Edit':'Add'} Transaction</h3>
     <div style="display:flex;flex-direction:column;gap:14px">
@@ -2397,20 +2687,159 @@ function openTxDialog(id){
       <div><label style="font-size:11px;color:#737373;display:block;margin-bottom:5px;font-weight:500">Source</label><select id="txSrc">${sources.map(s=>`<option value="${s.id}"${t&&t.sourceId===s.id?' selected':''}>${s.name}</option>`).join('')}${sources.length===0?'<option value="">No sources</option>':''}</select></div>
       <div><label style="font-size:11px;color:#737373;display:block;margin-bottom:5px;font-weight:500">Date</label><input type="date" id="txDate" value="${t?t.date.slice(0,10):today}"></div>
       <div><label style="font-size:11px;color:#737373;display:block;margin-bottom:5px;font-weight:500">Description</label><input type="text" id="txDesc" value="${t?t.description||'':''}"></div>
+      ${showDebtForExpense?`
+      <div id="txDebtSection" class="tx-debt-section" style="display:none">
+        <div class="tx-debt-toggle" onclick="toggleTxDebtBody()">
+          <div style="display:flex;align-items:center;gap:8px"><span style="font-size:15px">🤝</span><div><div style="font-size:12.5px;font-weight:700;color:#c4b5fd">Split / add a debt</div><div style="font-size:10px;color:#8a8a8a">Track money someone owes you for this expense</div></div></div>
+          <span id="txDebtChevron" style="color:#a78bfa;font-size:13px;transition:transform .2s">▾</span>
+        </div>
+        <div class="tx-debt-body">
+          <p style="font-size:10.5px;color:#8a8a8a;margin-bottom:8px">Add one row per person. Each creates a debt (they owe you) linked to this transaction.</p>
+          <div id="splitRows"></div>
+          <button type="button" class="btn btn-ghost btn-sm" style="width:100%;border:1px dashed rgba(124,58,237,.3);color:#a78bfa;font-size:11px;margin-top:4px" onclick="addSplitRow()">+ Add person</button>
+          <datalist id="contactsList">${contacts.map(c=>`<option value="${(c||'').replace(/"/g,'&quot;')}"></option>`).join('')}</datalist>
+        </div>
+      </div>`:''}
     </div>
     <div style="display:flex;gap:8px;margin-top:20px;justify-content:flex-end"><button class="btn btn-ghost" onclick="this.closest('.modal-overlay').remove()">Cancel</button><button class="btn btn-primary" onclick="saveTx('${id||''}')">${t?'Update':'Add'}</button></div>
   </div></div></div>`;
   document.body.insertAdjacentHTML('beforeend',html);
+  updateTxCats();
 }
-function updateTxCats(){const type=document.getElementById('txType').value;const cats=type==='INCOME'?CATEGORIES_INC:CATEGORIES_EXP;document.getElementById('txCat').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');}
-function saveTx(id){const txs=DB.get('transactions',[]);const sources=DB.get('sources',[]);const amt=parseFloat(document.getElementById('txAmt').value);if(!amt||amt<=0){showToast('Valid amount required','warn');return;}const data={type:document.getElementById('txType').value,category:document.getElementById('txCat').value,amount:amt,sourceId:document.getElementById('txSrc').value,date:document.getElementById('txDate').value+'T12:00:00',description:document.getElementById('txDesc').value};if(id){const idx=txs.findIndex(t=>t.id===id);if(idx>=0){const old=txs[idx];const oldSrc=sources.findIndex(s=>s.id===old.sourceId);if(oldSrc>=0){sources[oldSrc].balance+=(old.type==='INCOME'?-old.amount:old.amount);}txs[idx]={...txs[idx],...data};const newSrc=sources.findIndex(s=>s.id===data.sourceId);if(newSrc>=0){sources[newSrc].balance+=(data.type==='INCOME'?data.amount:-data.amount);}}}else{txs.push({id:DB.id(),...data});const srcIdx=sources.findIndex(s=>s.id===data.sourceId);if(srcIdx>=0){sources[srcIdx].balance+=(data.type==='INCOME'?data.amount:-data.amount);}}DB.set('sources',sources);DB.set('transactions',txs);document.querySelector('.modal-overlay').remove();showToast(id?'Transaction updated':'Transaction added','success');render();}
-function deleteTx(id){if(!confirm('Delete?'))return;const txs=DB.get('transactions',[]);const sources=DB.get('sources',[]);const t=txs.find(x=>x.id===id);if(t){const srcIdx=sources.findIndex(s=>s.id===t.sourceId);if(srcIdx>=0){sources[srcIdx].balance+=(t.type==='INCOME'?-t.amount:t.amount);}DB.set('sources',sources);}DB.set('transactions',txs.filter(x=>x.id!==id));showToast('Deleted','success');render();}
+// Toggle the debt section visibility based on the chosen transaction type (expense only).
+function updateTxCats(){
+  const type=document.getElementById('txType').value;
+  const cats=type==='INCOME'?CATEGORIES_INC:CATEGORIES_EXP;
+  document.getElementById('txCat').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
+  const sec=document.getElementById('txDebtSection');
+  if(sec){
+    if(type==='EXPENSE'){sec.style.display='';}
+    else {sec.style.display='none';sec.classList.remove('open');const sr=document.getElementById('splitRows');if(sr)sr.innerHTML='';}
+  }
+}
+function toggleTxDebtBody(){
+  const sec=document.getElementById('txDebtSection');if(!sec)return;
+  sec.classList.toggle('open');
+  const chev=document.getElementById('txDebtChevron');if(chev)chev.style.transform=sec.classList.contains('open')?'rotate(180deg)':'';
+  // Seed a first row when opening if none exist
+  const sr=document.getElementById('splitRows');
+  if(sec.classList.contains('open')&&sr&&sr.children.length===0) addSplitRow();
+}
+function addSplitRow(name,amount){
+  const sr=document.getElementById('splitRows');if(!sr)return;
+  const row=document.createElement('div');
+  row.className='split-row';
+  row.style.cssText='display:flex;gap:6px;margin-bottom:7px;align-items:center';
+  row.innerHTML=`<input type="text" class="split-name" list="contactsList" placeholder="Person's name" value="${(name||'').replace(/"/g,'&quot;')}" style="flex:1.4;min-width:0;font-size:12px">
+    <input type="number" step="0.01" class="split-amt" placeholder="Owes you" value="${amount!=null?amount:''}" style="flex:1;min-width:0;font-size:12px">
+    <button type="button" class="btn btn-ghost btn-sm" title="Remove" style="flex-shrink:0;color:#ef4444" onclick="this.parentElement.remove()">✕</button>`;
+  sr.appendChild(row);
+  const ni=row.querySelector('.split-name');if(ni)ni.focus();
+}
+function _collectSplitRows(){
+  const rows=document.querySelectorAll('#splitRows .split-row');
+  const out=[];
+  rows.forEach(r=>{
+    const name=(r.querySelector('.split-name')?.value||'').trim();
+    const amt=parseFloat(r.querySelector('.split-amt')?.value);
+    if(name&&!isNaN(amt)&&amt>0) out.push({person:name,amount:amt});
+  });
+  return out;
+}
+function saveTx(id){
+  const txs=DB.get('transactions',[]);const sources=DB.get('sources',[]);
+  const amt=parseFloat(document.getElementById('txAmt').value);
+  if(!amt||amt<=0){showToast('Valid amount required','warn');return;}
+  const data={type:document.getElementById('txType').value,category:document.getElementById('txCat').value,amount:amt,sourceId:document.getElementById('txSrc').value,date:document.getElementById('txDate').value+'T12:00:00',description:document.getElementById('txDesc').value};
+  if(id){
+    const idx=txs.findIndex(t=>t.id===id);
+    if(idx>=0){const old=txs[idx];const oldSrc=sources.findIndex(s=>s.id===old.sourceId);if(oldSrc>=0){sources[oldSrc].balance+=(old.type==='INCOME'?-old.amount:old.amount);}txs[idx]={...txs[idx],...data};const newSrc=sources.findIndex(s=>s.id===data.sourceId);if(newSrc>=0){sources[newSrc].balance+=(data.type==='INCOME'?data.amount:-data.amount);}}
+    DB.set('sources',sources);DB.set('transactions',txs);
+    document.querySelector('.modal-overlay').remove();showToast('Transaction updated','success');render();
+    return;
+  }
+  // NEW transaction
+  const newId=DB.id();
+  const newTx={id:newId,...data};
+  // Feature 2 & 6: link debts / record splits (expenses only)
+  let createdDebts=0;
+  if(data.type==='EXPENSE'){
+    const splits=_collectSplitRows();
+    if(splits.length){
+      const debts=DB.get('debts',[]);
+      const txDate=document.getElementById('txDate').value;
+      const splitMeta=[];
+      splits.forEach(sp=>{
+        const debtId=DB.id();
+        debts.push({id:debtId,person:sp.person,direction:'OWED_TO_ME',total:sp.amount,paid:0,settled:false,payments:[],date:txDate,description:(data.description||data.category||'Shared expense')+' (split)',txId:newId});
+        addContact(sp.person);
+        splitMeta.push({person:sp.person,amount:sp.amount,debtId});
+        createdDebts++;
+      });
+      DB.set('debts',debts);
+      newTx.splits=splitMeta;
+    }
+  }
+  txs.push(newTx);
+  const srcIdx=sources.findIndex(s=>s.id===data.sourceId);if(srcIdx>=0){sources[srcIdx].balance+=(data.type==='INCOME'?data.amount:-data.amount);}
+  DB.set('sources',sources);DB.set('transactions',txs);
+  document.querySelector('.modal-overlay').remove();
+  showToast(createdDebts?('Transaction added + '+createdDebts+' debt'+(createdDebts>1?'s':'')+' linked'):'Transaction added','success');
+  render();
+}
+function deleteTx(id){confirmModal({title:'Delete transaction?',message:'This transaction will be removed and the source balance restored.',onConfirm:()=>{const txs=DB.get('transactions',[]);const sources=DB.get('sources',[]);const t=txs.find(x=>x.id===id);if(t){const srcIdx=sources.findIndex(s=>s.id===t.sourceId);if(srcIdx>=0){sources[srcIdx].balance+=(t.type==='INCOME'?-t.amount:t.amount);}DB.set('sources',sources);}DB.set('transactions',txs.filter(x=>x.id!==id));showToast('Deleted','success');render();}});}
+
+// Feature 6: Split history detail
+function openTxSplitDetail(txId){
+  const txs=DB.get('transactions',[]);const debts=DB.get('debts',[]);
+  const t=txs.find(x=>x.id===txId);
+  if(!t||!t.splits||!t.splits.length){showToast('No split details','info');return;}
+  const totalSplit=t.splits.reduce((s,sp)=>s+(sp.amount||0),0);
+  const txDateStr=new Date(t.date).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});
+  const rows=t.splits.map(sp=>{
+    const d=sp.debtId?debts.find(x=>x.id===sp.debtId):null;
+    let status,statusColor,sub;
+    if(!d){ status='Debt removed'; statusColor='#737373'; sub='The linked debt no longer exists'; }
+    else if(d.settled||d.paid>=d.total){ status='✓ Settled'; statusColor='#10b981'; sub='Fully paid back'; }
+    else if(d.paid>0){ status='Partial'; statusColor='#fbbf24'; sub=fmt(d.paid)+' paid • '+fmt(d.total-d.paid)+' remaining'; }
+    else { status='Unpaid'; statusColor='#ef4444'; sub=fmt(d.total)+' still owed'; }
+    return `<div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);margin-bottom:8px">
+      <div class="dp-avatar me" style="flex-shrink:0">${(sp.person||'?').slice(0,1).toUpperCase()}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:600">${sp.person}</div>
+        <div style="font-size:10.5px;color:#737373;margin-top:1px">${sub}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0">
+        <div class="font-mono" style="font-size:13px;font-weight:700;color:#a78bfa">${fmt(sp.amount)}</div>
+        <div style="font-size:9.5px;font-weight:700;color:${statusColor};margin-top:1px">${status}</div>
+      </div>
+      ${d?`<button class="btn btn-ghost btn-sm" title="View in Debts" style="flex-shrink:0" onclick="_closeConfirm();debtViewPerson='${(sp.person||'').replace(/'/g,"\\'")}';navigate('debts')">→</button>`:''}
+    </div>`;
+  }).join('');
+  const html=`<div class="modal-overlay" onclick="if(event.target===this)_closeConfirm()">
+    <div class="modal confirm-modal" onclick="event.stopPropagation()" style="max-width:440px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div style="font-size:22px">🔗</div>
+        <div><div style="font-size:16px;font-weight:700">Split Details</div>
+        <div style="font-size:11px;color:#737373">${t.description||t.category} • ${txDateStr}</div></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:8px;margin:12px 0;padding:10px 12px;border-radius:10px;background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.18)">
+        <div><div style="font-size:9.5px;color:#737373;text-transform:uppercase;letter-spacing:.5px">Total expense</div><div class="font-mono" style="font-size:14px;font-weight:700">${fmt(t.amount)}</div></div>
+        <div style="text-align:right"><div style="font-size:9.5px;color:#737373;text-transform:uppercase;letter-spacing:.5px">Split with ${t.splits.length}</div><div class="font-mono" style="font-size:14px;font-weight:700;color:#a78bfa">${fmt(totalSplit)} owed to you</div></div>
+      </div>
+      <div style="max-height:46vh;overflow-y:auto;margin-bottom:14px">${rows}</div>
+      <div style="display:flex;justify-content:flex-end"><button class="btn btn-primary" onclick="_closeConfirm()">Done</button></div>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
 
 function openBillDialog(period,id){
-  const bills=DB.get('bills_'+projYear,[]);const b=id?bills.find(x=>x.id===id):null;const per=b?b.period:period;
+  const bills=DB.get('bills_'+projYear,[]);let b=id?bills.find(x=>x.id===id):null;if(b)b=applyBillOverride(b,projYear,billsViewMonth);const per=b?b.period:period;
   const isRec=b?b.recurring!==false:true;
   const bMonth=b&&b.recurring===false?b.month:new Date().getMonth();
   const dueDay=b?b.dueDay||'':'';
+  const startMonth=(b&&b.recurring!==false&&b.startMonth!=null)?b.startMonth:'';
   // Auto-suggest due day range based on period
   const periodHint=per==='BEFORE_15TH'?'(1–14)':'(16–31)';
   const html=`<div class="modal-overlay" onclick="if(event.target===this)this.remove()"><div class="modal"><div style="padding:24px">
@@ -2430,6 +2859,14 @@ function openBillDialog(period,id){
           <label style="font-size:11px;color:#737373;display:block;margin-bottom:5px;font-weight:500">Which Month?</label>
           <select id="billMonth">${MONTHS.map((m,i)=>'<option value="'+i+'"'+(i===bMonth?' selected':'')+'>'+m+'</option>').join('')}</select>
         </div>
+        <div id="billStartRow" style="margin-top:8px;${isRec?'':'display:none'}">
+          <label style="font-size:11px;color:#737373;display:block;margin-bottom:5px;font-weight:500">📆 Start Month <span style="color:#525252">(when this bill begins)</span></label>
+          <select id="billStart">
+            <option value="">From January (every month)</option>
+            ${MONTHS.map((m,i)=>'<option value="'+i+'"'+(String(i)===String(startMonth)?' selected':'')+'>Starts '+m+' '+projYear+'</option>').join('')}
+          </select>
+          <p style="font-size:10px;color:#525252;margin-top:3px">Pick a month if this bill should only start later in the year (e.g. a new subscription beginning in August). Months before it are skipped in your plan.</p>
+        </div>
       </div>
       <div><label style="font-size:11px;color:#737373;display:block;margin-bottom:5px;font-weight:500">Category</label><input type="text" id="billCat" value="${b?b.category:'Bills'}"></div>
     </div>
@@ -2445,12 +2882,98 @@ function updateDueHint(){
 function setBillRec(isRec){
   document.getElementById('billRec').value=isRec?'1':'0';
   document.getElementById('billMonthRow').style.display=isRec?'none':'';
+  const startRow=document.getElementById('billStartRow');if(startRow)startRow.style.display=isRec?'':'none';
   const yBtn=document.getElementById('billRecYes'),nBtn=document.getElementById('billRecNo');
   yBtn.style.background=isRec?'rgba(124,58,237,.2)':'rgba(255,255,255,.03)';yBtn.style.borderColor=isRec?'rgba(124,58,237,.4)':'rgba(255,255,255,.08)';yBtn.style.color=isRec?'#a78bfa':'#737373';yBtn.style.fontWeight=isRec?'600':'400';
   nBtn.style.background=!isRec?'rgba(251,191,36,.15)':'rgba(255,255,255,.03)';nBtn.style.borderColor=!isRec?'rgba(251,191,36,.3)':'rgba(255,255,255,.08)';nBtn.style.color=!isRec?'#fbbf24':'#737373';nBtn.style.fontWeight=!isRec?'600':'400';
 }
-function saveBill(id){const bills=DB.get('bills_'+projYear,[]);const name=document.getElementById('billName').value.trim();if(!name){showToast('Name required','warn');return;}const isRec=document.getElementById('billRec').value==='1';const dueDayVal=parseInt(document.getElementById('billDue').value);const data={name,amount:parseFloat(document.getElementById('billAmt').value)||0,period:document.getElementById('billPer').value,category:document.getElementById('billCat').value||'Bills',recurring:isRec,dueDay:(!isNaN(dueDayVal)&&dueDayVal>=1&&dueDayVal<=31)?dueDayVal:null};if(!isRec)data.month=parseInt(document.getElementById('billMonth').value);else delete data.month;if(id){const idx=bills.findIndex(b=>b.id===id);if(idx>=0)bills[idx]={...bills[idx],...data};}else bills.push({id:DB.id(),...data});DB.set('bills_'+projYear,bills);clearBillOverrides();document.querySelector('.modal-overlay').remove();showToast(id?'Bill updated':'Bill added','success');render();}
-function deleteBill(id){if(!confirm('Delete?'))return;DB.set('bills_'+projYear,DB.get('bills_'+projYear,[]).filter(b=>b.id!==id));clearBillOverrides();showToast('Deleted','success');render();}
+let _pendingBillEdit=null;
+function saveBill(id){
+  const bills=DB.get('bills_'+projYear,[]);
+  const name=document.getElementById('billName').value.trim();
+  if(!name){showToast('Name required','warn');return;}
+  const isRec=document.getElementById('billRec').value==='1';
+  const dueDayVal=parseInt(document.getElementById('billDue').value);
+  const data={name,amount:parseFloat(document.getElementById('billAmt').value)||0,period:document.getElementById('billPer').value,category:document.getElementById('billCat').value||'Bills',recurring:isRec,dueDay:(!isNaN(dueDayVal)&&dueDayVal>=1&&dueDayVal<=31)?dueDayVal:null};
+  if(!isRec){data.month=parseInt(document.getElementById('billMonth').value);data.startMonth=null;}
+  else{
+    delete data.month;
+    const startVal=document.getElementById('billStart')?document.getElementById('billStart').value:'';
+    data.startMonth=(startVal!==''&&!isNaN(parseInt(startVal)))?parseInt(startVal):null;
+  }
+  // Feature 1: when EDITING an existing RECURRING bill and the amount or due date
+  // changed, ask whether to apply to this month only or to all future months.
+  if(id){
+    let orig=bills.find(b=>b.id===id);
+    if(orig)orig=applyBillOverride(orig,projYear,billsViewMonth);
+    const origDue=(orig&&orig.dueDay!=null)?orig.dueDay:null;
+    const newDue=data.dueDay!=null?data.dueDay:null;
+    const amountChanged=orig&&(+orig.amount)!==(+data.amount);
+    const dueChanged=origDue!==newDue;
+    if(orig&&orig.recurring!==false&&isRec&&(amountChanged||dueChanged)){
+      _pendingBillEdit={id,data,orig:{amount:orig.amount,dueDay:origDue},amountChanged,dueChanged};
+      openBillScopeDialog();
+      return;
+    }
+  }
+  _commitBillSave(id,data,'all');
+}
+// scope: 'all' = write to recurring template; 'month' = one-time override for billsViewMonth
+function _commitBillSave(id,data,scope){
+  const bills=DB.get('bills_'+projYear,[]);
+  if(id){
+    const idx=bills.findIndex(b=>b.id===id);
+    if(idx>=0){
+      if(scope==='month'){
+        // Keep template amount/dueDay; apply other field changes to the template.
+        const tmpl={...data,amount:bills[idx].amount,dueDay:bills[idx].dueDay};
+        bills[idx]={...bills[idx],...tmpl};
+        // Write the one-time override for the currently viewed month.
+        setBillMonthOverride(projYear,billsViewMonth,id,{amount:data.amount,dueDay:data.dueDay});
+      } else {
+        bills[idx]={...bills[idx],...data};
+        // Applying to all future months: drop this month's override so the template shows.
+        clearBillMonthOverride(projYear,billsViewMonth,id);
+      }
+    }
+  } else {
+    bills.push({id:DB.id(),...data});
+  }
+  DB.set('bills_'+projYear,bills);
+  clearBillOverrides();
+  document.querySelectorAll('.modal-overlay').forEach(o=>o.remove());
+  showToast(id?(scope==='month'?'Bill updated for '+MONTHS[billsViewMonth]+' only':'Bill updated'):'Bill added','success');
+  render();
+}
+function openBillScopeDialog(){
+  if(!_pendingBillEdit)return;
+  const p=_pendingBillEdit;
+  const sym=getSymbol();
+  const changes=[];
+  if(p.amountChanged)changes.push(`Amount: ${fmt(p.orig.amount)} \u2192 ${fmt(p.data.amount)}`);
+  if(p.dueChanged)changes.push(`Due day: ${p.orig.dueDay||'\u2014'} \u2192 ${p.data.dueDay||'\u2014'}`);
+  const html=`<div class="modal-overlay" onclick="if(event.target===this){this.remove();_pendingBillEdit=null;}"><div class="modal" style="max-width:420px"><div style="padding:24px">
+    <h3 style="font-weight:700;margin-bottom:6px;font-size:16px">Apply changes to\u2026</h3>
+    <p style="font-size:12px;color:#8a8a8a;margin-bottom:4px">\u201C${p.data.name}\u201D is a recurring bill. How should this edit be applied?</p>
+    <p style="font-size:11px;color:#a78bfa;margin-bottom:16px">${changes.join(' \u00B7 ')}</p>
+    <button class="scope-opt" onclick="applyBillEditScope('month')">
+      <div class="so-ico">📌</div>
+      <div><div class="so-title">This month only (${MONTHS[billsViewMonth]})</div><div class="so-desc">Creates a one-time override for ${MONTHS[billsViewMonth]} ${projYear}. The recurring template stays unchanged for every other month.</div></div>
+    </button>
+    <button class="scope-opt" onclick="applyBillEditScope('all')">
+      <div class="so-ico">🔁</div>
+      <div><div class="so-title">All months (update template)</div><div class="so-desc">Updates the recurring bill itself so the new amount and due date apply going forward.</div></div>
+    </button>
+    <div style="display:flex;justify-content:flex-end;margin-top:6px"><button class="btn btn-ghost" onclick="this.closest('.modal-overlay').remove();_pendingBillEdit=null;">Cancel</button></div>
+  </div></div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
+function applyBillEditScope(scope){
+  if(!_pendingBillEdit)return;
+  const p=_pendingBillEdit;_pendingBillEdit=null;
+  _commitBillSave(p.id,p.data,scope);
+}
+function deleteBill(id){const bl=DB.get('bills_'+projYear,[]).find(b=>b.id===id);confirmModal({title:'Delete bill?',message:(bl?'\u201C'+bl.name+'\u201D will be removed':'This bill will be removed')+' from '+projYear+'. Recorded payments for it are also cleared.',onConfirm:()=>{DB.set('bills_'+projYear,DB.get('bills_'+projYear,[]).filter(b=>b.id!==id));clearBillOverrides();showToast('Deleted','success');render();}});}
 function clearBillOverrides(){const ov=DB.get('overrides_'+projYear,{});let changed=false;for(const m in ov){if(ov[m].bills15th!=null){delete ov[m].bills15th;changed=true;}if(ov[m].billsEnd!=null){delete ov[m].billsEnd;changed=true;}if(ov[m].remaining15th!=null){delete ov[m].remaining15th;changed=true;}if(ov[m].remainingEnd!=null){delete ov[m].remainingEnd;changed=true;}if(Object.keys(ov[m]).length===0)delete ov[m];}if(changed)DB.set('overrides_'+projYear,ov);}
 
 function toggleBillPaid(id){
@@ -3219,16 +3742,14 @@ function saveContact(originalName){
 function deleteContact(name){
   const debts=DB.get('debts',[]).filter(d=>d.person===name);
   if(debts.length>0){
-    if(!confirm(`${name} has ${debts.length} debt record(s). Remove them as the contact entry? (Existing debts will keep this person's name.)`)) return;
-    removeContact(name);
-    showToast('Contact removed (debts kept)','success');
+    confirmModal({title:'Remove contact?',icon:'warn',confirmText:'Remove',
+      message:`${name} has ${debts.length} debt record(s). Remove them as a saved contact? Existing debts will keep this person\u2019s name.`,
+      onConfirm:()=>{removeContact(name);showToast('Contact removed (debts kept)','success');render();}});
   } else {
-    if(!confirm(`Remove contact "${name}"?`)) return;
-    removeContact(name);
-    if(debtViewPerson===name) debtViewPerson=null;
-    showToast('Contact removed','success');
+    confirmModal({title:'Remove contact?',confirmText:'Remove',
+      message:`Remove the contact \u201C${name}\u201D?`,
+      onConfirm:()=>{removeContact(name);if(debtViewPerson===name) debtViewPerson=null;showToast('Contact removed','success');render();}});
   }
-  render();
 }
 
 // ===== Distribute a single payment across multiple debts =====
@@ -3396,7 +3917,7 @@ function saveDebt(id){
   DB.set('debts',debts);document.querySelector('.modal-overlay').remove();showToast(id?'Debt updated':'Debt added','success');render();
 }
 
-function deleteDebt(id){if(!confirm('Delete this debt record?'))return;DB.set('debts',DB.get('debts',[]).filter(d=>d.id!==id));showToast('Deleted','success');render();}
+function deleteDebt(id){const dt=DB.get('debts',[]).find(d=>d.id===id);confirmModal({title:'Delete debt record?',message:(dt?'The debt with '+dt.person:'This debt record')+' will be permanently removed, including its payment history.',onConfirm:()=>{DB.set('debts',DB.get('debts',[]).filter(d=>d.id!==id));showToast('Deleted','success');render();}});}
 
 function settleDebt(id){
   // Kept for backward compatibility — now routes through the payment dialog so the user is asked for amount + source.
@@ -3623,12 +4144,13 @@ function saveEditDebtPayment(debtId,pi){
   DB.set('debts',debts);document.querySelector('.modal-overlay').remove();showToast('Payment updated','success');render();
 }
 function deleteDebtPayment(debtId,pi){
-  if(!confirm('Delete this payment? Source balance will NOT be auto-reversed.'))return;
-  const debts=DB.get('debts',[]);const idx=debts.findIndex(d=>d.id===debtId);
-  if(idx<0)return;
-  debts[idx].payments.splice(pi,1);
-  recomputeDebtPaid(debts[idx]);
-  DB.set('debts',debts);showToast('Payment deleted','success');render();
+  confirmModal({title:'Delete this payment?',message:'The payment record will be removed. The source balance will NOT be auto-reversed.',onConfirm:()=>{
+    const debts=DB.get('debts',[]);const idx=debts.findIndex(d=>d.id===debtId);
+    if(idx<0)return;
+    debts[idx].payments.splice(pi,1);
+    recomputeDebtPaid(debts[idx]);
+    DB.set('debts',debts);showToast('Payment deleted','success');render();
+  }});
 }
 
 function openPayAllDialog(personName){
@@ -3794,6 +4316,7 @@ window.addEventListener('appinstalled',()=>{const b=document.getElementById('pwa
     </div></div><button id="calcFab" class="calc-fab" style="display: none;">🧮</button>
 <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;b65758fa712b480a9be8dc29d45a31fb&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
 
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"f0f03d0605bf45f1a3b17cf7d5e6861f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
       div.grammarly-desktop-integration {
         position: absolute;
